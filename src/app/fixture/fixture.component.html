@@ -1,0 +1,35 @@
+<div class="pt-5">
+  <div class="row m-2">
+    <h2>Partidos</h2>
+    <button
+      (click)="generate()"
+      type="button"
+      class="btn btn-primary ml-auto mr-3 mt-2"
+      [disabled]="!generateButtonHandler()"
+    >
+      <i class="fas fa-cogs"></i> Generar
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div *ngFor="let genFixture of generatedFixture; let i = index">
+        <h3>Fecha {{ i + 1 }}</h3>
+
+        <div class="form-group">
+          <label for="equiposVS">Equipos</label>
+          <div class="row">
+            <div class="col-md-6" *ngFor="let partido of generatedFixture[i]">
+              <input
+                value="{{ partido }}"
+                class="form-control"
+                id="equiposVS"
+                readonly
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
